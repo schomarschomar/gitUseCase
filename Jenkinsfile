@@ -78,13 +78,13 @@ pipeline {
         
         // sendSplunkConsoleLog: Send console log Splunk
         // Opt in data sent to Splunk
-        sendSplunkConsoleLog()
+        // sendSplunkConsoleLog()
         
         // properies
         // Configuration
         // Opt in data sent to Splunk Enable sending pipeline execution diagram by default
         // Pipeline execution diagram pipeline execution diagram is described in graphviz dot format, see also http://graphviz.org/documentation/
-        splunkinsJobOption(enableDiagram: true)
+        // splunkinsJobOption(enableDiagram: true)
         
         // skipDefaultCheckout Skip checking out code from source control by default in the agent directive. For example: options { skipDefaultCheckout() }
         // skipDefaultCheckout()
@@ -192,7 +192,8 @@ pipeline {
                 // checkout: Check out from version control
                 // ****************************************
                 // git checkout
-                // git credentialsId: '', url: 'https://github.com/schomarschomar/gitDemo/', branch: 'master'
+                // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
+                echo 'git checkout'
                 
                 // Slack notification
                 // ******************
@@ -208,12 +209,11 @@ pipeline {
                 //          Multiple channels may be provided as a comma, semicolon, or space delimited string.
                 
                 // slack
-                slackSend botUser: false, 
-                          channel: 'splunk', 
-                          color: 'good', 
-                          // message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
-                          message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} started \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
-                          notifyCommitters: true
+                //      channel: 'splunk', 
+                //      color: 'good', 
+                //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
+                //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} started \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
+                //      notifyCommitters: true
             }
         }
         
@@ -276,17 +276,17 @@ pipeline {
                 
                 // Environment variables
                 echo '\nJenkins environment variables ...'
-                bat('set')
+                // bat('set')
                 
                 // Workspace
                 echo '\nWorkspace files ...'
-                bat 'dir *.*'
+                // bat 'dir *.*'
                 
                 // Who am I
-                bat 'whoami'
+                // bat 'whoami'
                 
                 // ipconfig
-                bat 'ipconfig'
+                // bat 'ipconfig'
             }
         }
                     
@@ -297,20 +297,20 @@ pipeline {
             // }    
                 
             steps {
-                // bat
-                bat 'whoami'
+                echo 'build'
+                // bat 'whoami'
             }
         }
         
         stage('Test') { 
-            when {
+            // when {
                 // branch
-                anyOf { 
-                        branch 'master'
-                        branch 'staging'
-                        branch 'development' 
-                      }                                     
-            }   
+                // anyOf { 
+                        // branch 'master'
+                        // branch 'staging'
+                        // branch 'development' 
+                    // }                                     
+            // }   
 
             steps {
                 // step Test
@@ -321,7 +321,7 @@ pipeline {
                 // bat 'copy /y input\\*.xml'
                 
                 // Update timestamp for test results
-                bat "copy /b *.xml +,,"
+                // bat "copy /b *.xml +,,"
                 
                 // Show test results
                 junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
@@ -340,12 +340,12 @@ pipeline {
                 echo 'Stage Post - always: Always run, regardless of build status'
                 
                     // slack
-                    slackSend botUser: false, 
-                          channel: 'splunk', 
-                          color: 'good', 
-                          // message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
-                          message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
-                          notifyCommitters: true
+                    //slackSend botUser: false, 
+                    //      channel: 'splunk', 
+                    //      color: 'good', 
+                    //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
+                    //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
+                    //      notifyCommitters: true
                 
                 
             }
@@ -391,3 +391,4 @@ pipeline {
             }
     }
 }
+
