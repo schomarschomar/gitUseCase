@@ -191,9 +191,10 @@ pipeline {
                 
                 // checkout: Check out from version control
                 // ****************************************
+                echo 'git checkout'
                 // git checkout
                 // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
-                echo 'git checkout'
+                
                 
                 // Slack notification
                 // ******************
