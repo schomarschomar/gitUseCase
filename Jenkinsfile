@@ -185,8 +185,8 @@ pipeline {
     
     stages {
         
-        stage('Declarative: Pre Actions') { 
-            
+        // stage('Declarative: Pre Actions') { 
+        stage('Init')    
             steps {
                 
                 // checkout: Check out from version control
@@ -304,14 +304,18 @@ pipeline {
         }
         
         stage('Test') { 
-            // when {
+            when {
                 // branch
+                expression {
+                    env.BRANCH_NAME.toString().equals('development')
+                }
+                
                 // anyOf { 
                         // branch 'master'
                         // branch 'staging'
                         // branch 'development' 
                     // }                                     
-            // }   
+            }   
 
             steps {
                 // step Test
