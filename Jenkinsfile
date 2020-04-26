@@ -186,6 +186,7 @@ pipeline {
     stages {
         
         stage('Declarative: Pre Actions') {
+        
             steps {
                 
                 // checkout: Check out from version control
@@ -194,7 +195,12 @@ pipeline {
                 // git checkout
                 // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
                 
-                
+            }
+        }
+            
+        stage('Init') [
+        
+            steps {
                 // Slack notification
                 // ******************
                 // Color    Descritpion
@@ -316,7 +322,10 @@ pipeline {
                 anyOf {
                     // env.BRANCH_NAME.toString().equals('development')
                     // env.GIT_BRANCH('origin/development')
-                    branch 'origin/development'
+                    // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
+                    echo "GIT_BRANCH is ${env.GIT_BRANCH}"
+                
+                    branch env.BRANCH_NAME.toString().equals('origin/development')
                 }
             }
                                                                  
