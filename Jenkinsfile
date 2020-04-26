@@ -349,9 +349,11 @@ pipeline {
     
     post {
             
-        // always: Always run, regardless of build status
+        
         always {
-            echo 'Stage Post - always: Always run, regardless of build status'
+            // always: Always run, regardless of build status
+            echo "Stage Post - Build status analysis."
+            echo "Verbose log set to ${env.VERBOSE}"
                 
             // slack
             // slackSend botUser: false, 
@@ -362,19 +364,36 @@ pipeline {
             //      notifyCommitters: true
         }
                 
-        // unstable: Run if the build status is "Unstable
         unstable {
-            echo 'Stage Post - unstable: Run if the build status is "Unstable"'
+            // unstable: Run if the build status is "Unstable"
+            echo "Stage Post - Build status is Unstable."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                    
+                    sh "printenv | sort"
+                }
         }
                 
-        // notBuilt: Run if the build status is "Not Built"
         notBuilt {
-            echo 'Stage Post - notBuilt: Run if the build status is "Not Built"'
+            // notBuilt: Run if the build status is "Not Built"
+            echo "Stage Post - Build status is Not Built."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                    
+                    sh "printenv | sort"
+                }
         }
             
-        // cleanup: Always run after all other conditions, regardless of build status
+        
         cleanup {
-            echo 'Stage Post - cleanup: Always run after all other conditions, regardless of build status'
+            // cleanup: Always run after all other conditions, regardless of build status
+            echo "Stage Post - Cleanup."
         }
             
         // regreession: Run if the current builds status is worse than the previous builds status
@@ -400,7 +419,6 @@ pipeline {
         success {
             // Stage Post - success: Run if the build status is "Success" or hasnt been set yet
             echo "Stage Post - Build status is Success."
-            echo "Verbose log switch set to ${env.VERBOSE}"
             
             // Verbose log
             script {
@@ -467,19 +485,43 @@ pipeline {
                 echo "GIT_BRANCH is ${env.GIT_BRANCH}"
         }
                 
-        // unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"
+        
         unsuccessful {
-            echo 'Stage Post - unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"'
+            // unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"
+            echo "Stage Post - Build status is Unsuccessful."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                }
+            }
         }
             
-        // fixed: Run if the previous build was not successful and the current builds status is "Success"
+        
         fixed {
-            echo 'Stage Post - fixed: Run if the previous build was not successful and the current builds status is "Success"'
+            // fixed: Run if the previous build was not successful and the current builds status is "Success"
+            echo "Stage Post - Build status is Unsuccessful."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                }
+            }
         }
             
-        // changed: Run if the current builds status is different than the previous builds status
+        
         changed {
-            echo 'Stage Post - changed: Run if the current builds status is different than the previous builds status'
+            // changed: Run if the current builds status is different than the previous builds status
+            echo "Stage Post - Build status is Changed."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                }
+            }
         }
     }       
 }
