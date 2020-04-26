@@ -437,7 +437,7 @@ pipeline {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
                 }
-            }
+            
                 
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
@@ -497,8 +497,7 @@ pipeline {
                 }
             }
         }
-            
-        
+              
         fixed {
             // fixed: Run if the previous build was not successful and the current builds status is "Success"
             echo "Stage Post - Build status is Unsuccessful."
