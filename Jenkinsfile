@@ -253,7 +253,7 @@ pipeline {
         
         stage('Deploy') { 
             when { 
-                triggeredBy 'schomarschomar' 
+                triggeredBy 'splunk' 
             }
             
             steps {
