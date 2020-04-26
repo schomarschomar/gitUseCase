@@ -277,7 +277,7 @@ pipeline {
             // Jenkins environment variables
             echo 'Jenkins environment variables'
             echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
-            echo "Build Url is ${env.BUILD_URL}"
+            echo "BUILD_URL is ${env.BUILD_URL}"
             echo "Job Url is ${env.JOB_URL}"
             echo "Job Name is ${env.JOB_NAME}"
             echo "Jumphost is ${env.JUMPHOST}" 
