@@ -231,13 +231,14 @@ pipeline {
             when {
                 anyOf {
                     branch ('development')
+                    branch ('release')
+                    branch ('master')
                 }
             }
                                                                  
             steps {
-                // step Test
-                echo 'Stage Test'
                 echo "GIT_BRANCH is ${env.GIT_BRANCH}"
+                echo 'Test running ...'
                 
                 // Get test results
                 // bat 'copy /y C:\\Users\\xx017\\.jenkins\\workspace\\PipelineExample\\input\\*.xml C:\\Users\\xx017\\.jenkins\\workspace\\PipelineExample'
