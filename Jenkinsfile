@@ -351,7 +351,17 @@ pipeline {
             // always: Always run, regardless of build status
             echo "Stage Post - Build status analysis."
             echo "Verbose log set to ${env.VERBOSE}"
-                
+            
+            // Jenkins environment variables
+            echo "Jumphost is ${env.JUMPHOST}"
+            echo "Job Name is ${env.JOB_NAME}"
+            echo "Job Url is ${env.JOB_URL}" 
+            echo "Build Url is ${env.BUILD_URL}"
+            
+            // Git environment variables
+            echo "Git Branch is ${env.GIT_BRANCH}"
+            echo "Git Url is ${env.GIT_URL}"
+            
             // slack
             // slackSend botUser: false, 
             //      channel: 'splunk', 
