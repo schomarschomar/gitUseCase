@@ -51,7 +51,7 @@ pipeline {
         
         // disableConcurrentBuilds Disallow concurrent executions of the Pipeline. Can be useful for preventing simultaneous accesses to shared resources, etc.
         // Do not allow concurrent builds
-        disableConcurrentBuilds()
+        // disableConcurrentBuilds()
         
         // disableResume Do not allow the pipeline to resume if the master restarts
         // Do not allow the pipeline to resume if the master restarts
@@ -118,7 +118,7 @@ pipeline {
         // choice
         // A choice parameter
         // Usage: echo "${params.JUMPHOST}"
-        choice(name: 'JUMPHOST', choices: ['JUMPHOST_ONE', 'JUMPHOST_TWO', 'JUMPHOST_THREE'], description: 'Select your Jumphost') 
+        // choice(name: 'JUMPHOST', choices: ['JUMPHOST_ONE', 'JUMPHOST_TWO', 'JUMPHOST_THREE'], description: 'Select your Jumphost') 
         
         // booleanParam
         // A boolean parameter
@@ -216,11 +216,7 @@ pipeline {
         }
                             
         stage('Build') { 
-            // when {
-                    // branch
-                    // branch 'master'
-            // }    
-                
+                            
             steps {
                 echo 'build'
             }
