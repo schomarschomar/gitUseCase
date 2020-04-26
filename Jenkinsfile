@@ -304,17 +304,20 @@ pipeline {
         }
         
         stage('Test') { 
+            
+            / anyOf { 
+                        // branch 'master'
+                        // branch 'staging'
+                        // branch 'development' 
+                    // }
+            
             when {
                 // branch
                 expression {
                     env.BRANCH_NAME.toString().equals('development')
                 }
                 
-                // anyOf { 
-                        // branch 'master'
-                        // branch 'staging'
-                        // branch 'development' 
-                    // }                                     
+                /                                     
             }   
 
             steps {
@@ -332,12 +335,13 @@ pipeline {
                 junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
             }
         }
-        stage('Deploy') { 
+        
+    stage('Deploy') { 
             steps {
                 // step deploy
                    echo 'Stage Deploy dev'
             }
-        }
+        
     }
     post {
             // always: Always run, regardless of build status
