@@ -318,15 +318,15 @@ pipeline {
                         // branch 'development' 
                     // }
             
-            when {
-                anyOf {
+            // when {
+                // anyOf {
                     // env.BRANCH_NAME.toString().equals('development')
                     // env.GIT_BRANCH('origin/development')
                     // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
                                     
-                    branch env.BRANCH_NAME.toString().equals('origin/development')
-                }
-            }
+                    // branch env.BRANCH_NAME.toString().equals('origin/development')
+                // }
+            // }
                                                                  
             steps {
                 // step Test
