@@ -221,7 +221,7 @@ pipeline {
                        
             when {
                 anyOf {
-                    branch ('development')
+                    branch ('develop')
                     branch ('release')
                     branch ('master')
                 }
@@ -292,8 +292,8 @@ pipeline {
             slackSend botUser: false, 
                 channel: 'splunk', 
                 color: 'good', 
-                message: "Build: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
-                // message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
+                // message: "Build: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
+                message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
                 notifyCommitters: true
         }
                 
