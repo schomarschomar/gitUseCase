@@ -251,22 +251,27 @@ pipeline {
             }
         }
         
-        stage('Deploy') { 
+        stage('Deploy to Test') { 
             when { 
-                triggeredBy 'splunk' 
+                branch('release')
             }
             
             steps {
                 // step deploy
-                echo 'Deploy'
-                
-                stage {
-                    steps {
-                        echo 'Demo'   
-                    }
-                }    
+                echo 'Deploy to test'
             }   
         }
+        
+        stage('Deploy to Prod') { 
+            when { 
+                branch('master')
+            }
+            
+            steps {
+                // step deploy
+                echo 'Deploy to prod'
+            }   
+        } 
     }    
     
     post {
