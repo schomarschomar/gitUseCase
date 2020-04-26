@@ -195,12 +195,6 @@ pipeline {
                 // git checkout
                 // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
                 
-            }
-        }
-            
-        stage('Init') {
-        
-            steps {
                 // Slack notification
                 // ******************
                 // Color    Descritpion
