@@ -217,13 +217,6 @@ pipeline {
             }
         }
                             
-        stage('Build') { 
-                            
-            steps {
-                echo 'build'
-            }
-        }
-        
         stage('Test') { 
                        
             when {
@@ -249,17 +242,6 @@ pipeline {
                 // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
             }
         }
-        
-        stage('Deploy to Dev') { 
-            when { 
-                branch('development')
-            }
-            
-            steps {
-                // step deploy
-                echo 'Deploy to dev'
-            }   
-        } 
         
         stage('Deploy to Test') { 
             when { 
