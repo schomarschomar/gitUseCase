@@ -185,8 +185,7 @@ pipeline {
     
     stages {
         
-        // stage('Declarative: Pre Actions') { 
-        stage('Init') {
+        stage('Declarative: Pre Actions') {
             steps {
                 
                 // checkout: Check out from version control
@@ -275,7 +274,7 @@ pipeline {
                 echo "GIT_URL is ${env.GIT_URL}"
                 
                 // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
-                echo "GGIT_BRANCH is ${env.GIT_BRANCHL}"
+                echo "GIT_BRANCH is ${env.GIT_BRANCH}"
                 
                 // Environment variables
                 echo '\nJenkins environment variables ...'
@@ -314,8 +313,7 @@ pipeline {
                     // }
             
             when {
-                // branch
-                expression {
+                branch {
                     // env.BRANCH_NAME.toString().equals('development')
                     env.GIT_BRANCH('origin/development')
                 }
