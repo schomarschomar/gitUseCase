@@ -34,7 +34,8 @@ pipeline {
     // depending on where the environment directive is located within the Pipeline.
     
     environment {
-        DEBUG        = 'true'
+        ON_PREM        = 'true'
+        CLOUD          = 'false'
     }
     
     // options
@@ -147,8 +148,9 @@ pipeline {
         // Minutes within the hour  The hour of the day The day of the month    The month       The day of the week (0–7) 
         // (0–59)                   (0–23)              (1–31)                  (1–12)          where 0 and 7 are Sunday.
         // Configuration    
-        // Build periodically    
-        // cron('H */23 * * 1-5')
+        // Build periodically  
+        // https://crontab.guru/
+        // cron(/1 * * * 1-7')
         
         // pollSCM
         // Accepts a cron-style string to define a regular interval at which Jenkins should check for new source changes. 
@@ -215,18 +217,11 @@ pipeline {
             }
         }
                             
-        stage('Build') { 
-                            
-            steps {
-                echo 'build'
-            }
-        }
-        
         stage('Test') { 
                        
             when {
                 anyOf {
-                    branch ('development')
+                    branch ('develop')
                     branch ('release')
                     branch ('master')
                 }
@@ -247,17 +242,6 @@ pipeline {
                 // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
             }
         }
-        
-        stage('Deploy to Dev') { 
-            when { 
-                branch('development')
-            }
-            
-            steps {
-                // step deploy
-                echo 'Deploy to dev'
-            }   
-        } 
         
         stage('Deploy to Test') { 
             when { 
@@ -301,13 +285,16 @@ pipeline {
             echo "Git Commit is ${env.GIT_COMMIT}"
             echo "Git Url is ${env.GIT_URL}"
             
+            // Show test results
+                // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
+            
             // slack
-            // slackSend botUser: false, 
-            //      channel: 'splunk', 
-            //      color: 'good', 
-            //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
-            //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
-            //      notifyCommitters: true
+            //slackSend botUser: false, 
+            // channel: 'splunk', 
+            // color: 'good', 
+            // message: "Build: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
+            // message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
+            // notifyCommitters: true
         }
                 
         unstable {
