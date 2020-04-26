@@ -242,6 +242,7 @@ pipeline {
                     // branch env.BRANCH_NAME.toString().equals('origin/development')       
                     branch ('origin/development')
                     branch ('refs/remotes/origin/development')
+                    branch ('*')
                              
                 }
             }
