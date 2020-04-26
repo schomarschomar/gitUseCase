@@ -227,20 +227,10 @@ pipeline {
         }
         
         stage('Test') { 
-            
-            // anyOf { 
-                        // branch 'master'
-                        // branch 'staging'
-                        // branch 'development' 
-                    // }
-            
+                       
             when {
                 anyOf {
-                    branch ('development1')
-                    // branch ('origin/development')
-                    // branch ('refs/remotes/origin/development')
-                    // branch ('*')
-                             
+                    branch ('development')
                 }
             }
                                                                  
