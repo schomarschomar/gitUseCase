@@ -252,6 +252,10 @@ pipeline {
         }
         
         stage('Deploy') { 
+            when { 
+                triggeredBy 'SCMTrigger' 
+            }
+            
             steps {
                 // step deploy
                 echo 'Deploy'
