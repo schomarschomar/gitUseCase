@@ -123,7 +123,7 @@ pipeline {
         // booleanParam
         // A boolean parameter
         // Usage: echo "${params.VERBOSE}"
-        booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
+        // booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
         
         // password
         // A password parameter
