@@ -316,8 +316,8 @@ pipeline {
                 expression {
                     env.BRANCH_NAME.toString().equals('development')
                 }
-                
-                                                     
+            }
+                                                                 
             steps {
                 // step Test
                 echo 'Stage Test'
