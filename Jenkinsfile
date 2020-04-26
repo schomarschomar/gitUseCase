@@ -228,7 +228,8 @@ pipeline {
             }
                                                                  
             steps {
-                echo 'GIT_BRANCH is ' + "${env.GIT_BRANCH}"
+                echo 'GIT_BRANCH' 
+                echo "GIT_BRANCH: ${env.GIT_BRANCH}"
                 echo 'Test running ...'
                 
                 // Get test results
