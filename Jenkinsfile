@@ -392,7 +392,7 @@ pipeline {
             echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
             
             script {
-                if (env.VERBOSE) {
+                if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
                     echo "VERBOSE is ${env.VERBOSE}"
                     sh "printenv | sort"
