@@ -384,27 +384,47 @@ pipeline {
             
         // aborted: Run when the build status is "Aborted"
         aborted {
-            echo 'Stage Post - aborted: Run when the build status is "Aborted"'
+            // Stage Post - aborted: Run when the build status is "Aborted"
+            echo "Stage Post - Build status is Aborted."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                    
+                    sh "printenv | sort"
+                }
+            }
         }
             
         // success: Run if the build status is "Success" or hasnt been set yet
         success {
-            echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
+            // Stage Post - success: Run if the build status is "Success" or hasnt been set yet
+            echo "Stage Post - Build status is Success."
+            echo "Verbose log switch set to ${env.VERBOSE}"
             
+            // Verbose log
             script {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
-                    echo "VERBOSE is ${env.VERBOSE}"
-                    sh "printenv | sort"
+                    
+                    
                 }
             }
         }
             
         // failure: Run if the build status is "Failure"
         failure {
-            echo 'Stage Post - failure: Run if the build status is "Failure"'
+            // Stage Post - failure: Run if the build status is "Failure"'
+            echo "Stage Post - Build status is Failure."
             
-            // sh "printenv | sort"
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    
+                    echo 'Verbose log ...'
+                    
+                }
                 
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
