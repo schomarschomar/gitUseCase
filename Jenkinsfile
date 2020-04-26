@@ -198,7 +198,7 @@ pipeline {
             }
         }
             
-        stage('Init') [
+        stage('Init') {
         
             steps {
                 // Slack notification
