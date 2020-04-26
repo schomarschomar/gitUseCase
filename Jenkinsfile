@@ -393,6 +393,8 @@ pipeline {
             
             script {
                 if (env.VERBOSE) {
+                    echo 'Verbose log ...'
+                    echo "VERBOSE is ${env.VERBOSE}"
                     sh "printenv | sort"
                 }
             }
