@@ -124,7 +124,7 @@ pipeline {
         // booleanParam
         // A boolean parameter
         // Usage: echo "${params.VERBOSE}"
-        // booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
+        booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
         
         // password
         // A password parameter
@@ -360,7 +360,7 @@ pipeline {
             
             // Verbose log
             script {
-                if (env.VERBOSE == true) {
+                if (param.VERBOSE == true) {
                     echo 'Verbose log ...'
                  // Using env-vars.html
                  // You can open ${YOUR_JENKINS_HOST}/env-vars.html page on your Jenkins master server 
