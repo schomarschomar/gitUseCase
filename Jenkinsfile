@@ -51,7 +51,7 @@ pipeline {
         
         // disableConcurrentBuilds Disallow concurrent executions of the Pipeline. Can be useful for preventing simultaneous accesses to shared resources, etc.
         // Do not allow concurrent builds
-        disableConcurrentBuilds()
+        // disableConcurrentBuilds()
         
         // disableResume Do not allow the pipeline to resume if the master restarts
         // Do not allow the pipeline to resume if the master restarts
@@ -216,11 +216,7 @@ pipeline {
         }
                             
         stage('Build') { 
-            // when {
-                    // branch
-                    // branch 'master'
-            // }    
-                
+                            
             steps {
                 echo 'build'
             }
