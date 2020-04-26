@@ -191,7 +191,7 @@ pipeline {
                 // ****************************************
                 // echo 'git checkout'
                 // git checkout
-                // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
+                git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'development'
                 
                 echo 'Notification'
                 // Slack notification
