@@ -220,7 +220,7 @@ pipeline {
         stage('Debug') { 
             when {
                 // debug
-                environment name: 'DEBUG', value: 'true'
+                // environment name: 'DEBUG', value: 'true'
             }
             
             steps {
@@ -349,7 +349,6 @@ pipeline {
     
     post {
             
-        
         always {
             // always: Always run, regardless of build status
             echo "Stage Post - Build status analysis."
@@ -375,6 +374,7 @@ pipeline {
                     
                     sh "printenv | sort"
                 }
+            }
         }
                 
         notBuilt {
@@ -388,9 +388,9 @@ pipeline {
                     
                     sh "printenv | sort"
                 }
+            }    
         }
             
-        
         cleanup {
             // cleanup: Always run after all other conditions, regardless of build status
             echo "Stage Post - Cleanup."
@@ -437,7 +437,7 @@ pipeline {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
                 }
-            
+            }
                 
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
