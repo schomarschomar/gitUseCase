@@ -338,71 +338,74 @@ pipeline {
             steps {
                 // step deploy
                    echo 'Stage Deploy dev'
-                   
-                post {
-                    // always: Always run, regardless of build status
-                    always {
-                        echo 'Stage Post - always: Always run, regardless of build status'
-                
-                        // slack
-                        // slackSend botUser: false, 
-                        //      channel: 'splunk', 
-                        //      color: 'good', 
-                        //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
-                        //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
-                        //      notifyCommitters: true
-                    }
-                
-                    // unstable: Run if the build status is "Unstable
-                    unstable {
-                        echo 'Stage Post - unstable: Run if the build status is "Unstable"'
-                    }
-                
-                    // notBuilt: Run if the build status is "Not Built"
-                    notBuilt {
-                        echo 'Stage Post - notBuilt: Run if the build status is "Not Built"'
-                    }
-            
-                    // cleanup: Always run after all other conditions, regardless of build status
-                    cleanup {
-                        echo 'Stage Post - cleanup: Always run after all other conditions, regardless of build status'
-                    }
-            
-                    // regreession: Run if the current builds status is worse than the previous builds status
-                    regression {
-                        echo 'Stage Post - regreession: Run if the current builds status is worse than the previous builds status'
-                    }
-            
-                    // aborted: Run when the build status is "Aborted"
-                    aborted {
-                        echo 'Stage Post - aborted: Run when the build status is "Aborted"'
-                    }
-            
-                    // success: Run if the build status is "Success" or hasnt been set yet
-                    success {
-                        echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
-                    }
-            
-                    // failure: Run if the build status is "Failure"
-                    failure {
-                        echo 'Stage Post - failure: Run if the build status is "Failure"'
-                    }
-                
-                    // unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"
-                    unsuccessful {
-                        echo 'Stage Post - unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"'
-                    }
-                    // fixed: Run if the previous build was not successful and the current builds status is "Success"
-                    fixed {
-                        echo 'Stage Post - fixed: Run if the previous build was not successful and the current builds status is "Success"'
-                    }
-            
-                    // changed: Run if the current builds status is different than the previous builds status
-                    changed {
-                        echo 'Stage Post - changed: Run if the current builds status is different than the previous builds status'
-                    }
-                }
-            }
+            }   
         }
-    }            
+        
+        post {
+            
+            // always: Always run, regardless of build status
+            always {
+                echo 'Stage Post - always: Always run, regardless of build status'
+                
+                // slack
+                // slackSend botUser: false, 
+                //      channel: 'splunk', 
+                //      color: 'good', 
+                //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
+                //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
+                //      notifyCommitters: true
+            }
+                
+            // unstable: Run if the build status is "Unstable
+            unstable {
+                echo 'Stage Post - unstable: Run if the build status is "Unstable"'
+            }
+                
+            // notBuilt: Run if the build status is "Not Built"
+            notBuilt {
+                echo 'Stage Post - notBuilt: Run if the build status is "Not Built"'
+            }
+            
+            // cleanup: Always run after all other conditions, regardless of build status
+            cleanup {
+                echo 'Stage Post - cleanup: Always run after all other conditions, regardless of build status'
+            }
+            
+            // regreession: Run if the current builds status is worse than the previous builds status
+            regression {
+                echo 'Stage Post - regreession: Run if the current builds status is worse than the previous builds status'
+            }
+            
+            // aborted: Run when the build status is "Aborted"
+            aborted {
+                echo 'Stage Post - aborted: Run when the build status is "Aborted"'
+            }
+            
+            // success: Run if the build status is "Success" or hasnt been set yet
+            success {
+                echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
+            }
+            
+            // failure: Run if the build status is "Failure"
+            failure {
+                echo 'Stage Post - failure: Run if the build status is "Failure"'
+            }
+                
+            // unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"
+            unsuccessful {
+                echo 'Stage Post - unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"'
+            }
+            
+            // fixed: Run if the previous build was not successful and the current builds status is "Success"
+            fixed {
+                echo 'Stage Post - fixed: Run if the previous build was not successful and the current builds status is "Success"'
+            }
+            
+            // changed: Run if the current builds status is different than the previous builds status
+            changed {
+                echo 'Stage Post - changed: Run if the current builds status is different than the previous builds status'
+            }
+            
+        }
+    }       
 }
