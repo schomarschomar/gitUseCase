@@ -360,7 +360,7 @@ pipeline {
             
             // Verbose log
             script {
-                if (param.VERBOSE == true) {
+                if (params.VERBOSE == true) {
                     echo 'Verbose log ...'
                  // Using env-vars.html
                  // You can open ${YOUR_JENKINS_HOST}/env-vars.html page on your Jenkins master server 
