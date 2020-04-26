@@ -271,7 +271,7 @@ pipeline {
         always {
             // Stage Post - always: Always run, regardless of build status
             echo "Stage Post - Build status analysis ..."
-            echo "Verbose log set to ${env.VERBOSE}"
+            // echo "Verbose log set to ${env.VERBOSE}"
             
             // Jenkins environment variables
             echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
@@ -286,10 +286,10 @@ pipeline {
             echo "Git Url is ${env.GIT_URL}"
             
             // Show test results
-                // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
+            // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
             
             // slack
-            //slackSend botUser: false, 
+            // slackSend botUser: false, 
             // channel: 'splunk', 
             // color: 'good', 
             // message: "Build: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
