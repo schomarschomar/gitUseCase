@@ -74,7 +74,7 @@ pipeline {
         // quietPeriod(30)
         
         // retry On failure, retry the entire Pipeline the specified number of times. For example: options { retry(3) }
-        retry(3)
+        retry(0)
         
         // sendSplunkConsoleLog: Send console log Splunk
         // Opt in data sent to Splunk
