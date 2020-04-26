@@ -189,7 +189,7 @@ pipeline {
                 
                 // checkout: Check out from version control
                 // ****************************************
-                echo 'git checkout'
+                // echo 'git checkout'
                 // git checkout
                 // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'master'
                 
@@ -223,7 +223,6 @@ pipeline {
                 
             steps {
                 echo 'build'
-                // bat 'whoami'
             }
         }
         
@@ -265,7 +264,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 // step deploy
-                echo 'Stage Deploy dev'
+                echo 'Deploy'
             }   
         }
     }    
@@ -353,12 +352,12 @@ pipeline {
         }
             
         success {
-            // Stage Post - success: Run if the build status is "Success" or hasnt been set yet
+            // Stage Post - success: Run if the build status is "Success" or hasn't been set yet
             echo "Stage Post - Build status is Success."
             
             // Verbose log
             script {
-                if (env.VERBOSE == true) {
+                if (${env.VERBOSE} == true) {
                     echo 'Verbose log ...'
                     
                 // DEBUG custom variable to show environment variables or not
