@@ -259,6 +259,12 @@ pipeline {
             steps {
                 // step deploy
                 echo 'Deploy'
+                
+                stage {
+                    steps {
+                        echo 'Demo'   
+                    }
+                }    
             }   
         }
     }    
