@@ -392,7 +392,7 @@ pipeline {
             echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
             
             script {
-                if (env.DEBUG = true) {
+                if (env.DEBUG) {
                     sh "printenv | sort"
                 }
             }
