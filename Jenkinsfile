@@ -228,7 +228,7 @@ pipeline {
             }
                                                                  
             steps {
-                echo 'GIT_BRANCH' 
+                echo 'Git branch'
                 echo "GIT_BRANCH: ${env.GIT_BRANCH}"
                 echo 'Test running ...'
                 
@@ -275,6 +275,7 @@ pipeline {
             // echo "Verbose log set to ${env.VERBOSE}"
             
             // Jenkins environment variables
+            echo 'Jenkins environment variables'
             echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
             echo "Build Url is ${env.BUILD_URL}"
             echo "Job Url is ${env.JOB_URL}"
@@ -282,6 +283,7 @@ pipeline {
             echo "Jumphost is ${env.JUMPHOST}" 
                         
             // Git environment variables
+            echo 'Git environment variables'
             echo "Git Branch is ${env.GIT_BRANCH}"
             echo "Git Commit is ${env.GIT_COMMIT}"
             echo "Git Url is ${env.GIT_URL}"
