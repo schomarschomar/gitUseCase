@@ -253,7 +253,7 @@ pipeline {
         
         stage('Deploy') { 
             when { 
-                triggeredBy 'SCMTrigger' 
+                triggeredBy '*' 
             }
             
             steps {
