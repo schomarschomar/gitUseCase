@@ -253,7 +253,7 @@ pipeline {
         
         stage('Deploy') { 
             when { 
-                triggeredBy '*' 
+                triggeredBy 'schomarschomar' 
             }
             
             steps {
