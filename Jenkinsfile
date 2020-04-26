@@ -230,7 +230,7 @@ pipeline {
             steps {
                 echo 'Git branch'
                 echo "GIT_BRANCH: ${env.GIT_BRANCH}"
-                echo env.GIT_BRANCH
+                echo 'GIT_BRANCH:' env.GIT_BRANCH
                 echo 'Test running ...'
                 
                 // Get test results
