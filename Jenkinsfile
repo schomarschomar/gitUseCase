@@ -220,7 +220,7 @@ pipeline {
         stage('Debug') { 
             when {
                 // debug
-                // environment name: 'DEBUG', value: 'true'
+                environment name: 'DEBUG', value: 'true'
             }
             
             steps {
