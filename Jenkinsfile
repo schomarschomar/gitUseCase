@@ -241,6 +241,7 @@ pipeline {
                     // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
                     // branch env.BRANCH_NAME.toString().equals('origin/development')       
                     branch ('origin/development')
+                    branch (name: '*/development')
                              
                 }
             }
