@@ -353,15 +353,17 @@ pipeline {
             echo "Verbose log set to ${env.VERBOSE}"
             
             // Jenkins environment variables
-            echo "Jumphost is ${env.JUMPHOST}"
-            echo "Job Name is ${env.JOB_NAME}"
-            echo "Job Url is ${env.JOB_URL}" 
+            echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
             echo "Build Url is ${env.BUILD_URL}"
-            
-            // Git environment variables
-            echo "Git Url is ${env.GIT_URL}"
-            echo "Git Branch is ${env.GIT_BRANCH}"
+            echo "Job Url is ${env.JOB_URL}"
+            echo "Job Name is ${env.JOB_NAME}"
+            echo "Jumphost is ${env.JUMPHOST}" 
                         
+            // Git environment variables
+            echo "Git Branch is ${env.GIT_BRANCH}"
+            echo "Git Commit is ${env.GIT_COMMIT}"
+            echo "Git Url is ${env.GIT_URL}"
+            
             // slack
             // slackSend botUser: false, 
             //      channel: 'splunk', 
