@@ -397,7 +397,6 @@ pipeline {
             }
         }
             
-        // success: Run if the build status is "Success" or hasnt been set yet
         success {
             // Stage Post - success: Run if the build status is "Success" or hasnt been set yet
             echo "Stage Post - Build status is Success."
@@ -407,23 +406,18 @@ pipeline {
             script {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
-                    
-                    
                 }
             }
         }
             
-        // failure: Run if the build status is "Failure"
         failure {
-            // Stage Post - failure: Run if the build status is "Failure"'
+            // Stage Post - failure: Run if the build status is "Failure"
             echo "Stage Post - Build status is Failure."
             
             // Verbose log
             script {
                 if (env.VERBOSE == true) {
-                    
                     echo 'Verbose log ...'
-                    
                 }
                 
                 // DEBUG custom variable to show environment variables or not
