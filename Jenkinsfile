@@ -318,8 +318,6 @@ pipeline {
                 }
                 
                                                      
-            }   
-
             steps {
                 // step Test
                 echo 'Stage Test'
