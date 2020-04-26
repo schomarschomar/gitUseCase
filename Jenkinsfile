@@ -114,25 +114,23 @@ pipeline {
         // A parameter of a string type
         // Usage: echo "${params.JUMPHOST_NAME}"
         // string(name: 'JUMPHOST_NAME', defaultValue: 'jumphostXXX', description: '')
-    
-        // booleanParam
-        // A boolean parameter
-        // Usage: echo "${params.VERBOSE}"
-        booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
-        
+                
         // choice
         // A choice parameter
         // Usage: echo "${params.JUMPHOST}"
         choice(name: 'JUMPHOST', choices: ['JUMPHOST_ONE', 'JUMPHOST_TWO', 'JUMPHOST_THREE'], description: 'Select your Jumphost') 
+        
+        // booleanParam
+        // A boolean parameter
+        // Usage: echo "${params.VERBOSE}"
+        booleanParam(name: 'VERBOSE', defaultValue: true, description: 'Verbose console log')
         
         // password
         // A password parameter
         // Usage: echo "${params.PASSWORD}"
         // password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'A secret password')
     }
-    
-    // 
-    
+       
     // triggers
     // --------
     // triggers {
