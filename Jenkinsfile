@@ -186,7 +186,7 @@ pipeline {
     stages {
         
         // stage('Declarative: Pre Actions') { 
-        stage('Init')    
+        stage('Declarative: Pre Actions')    
             steps {
                 
                 // checkout: Check out from version control
