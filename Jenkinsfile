@@ -334,7 +334,7 @@ pipeline {
             }
         }
         
-    stage('Deploy') { 
+        stage('Deploy') { 
             steps {
                 // step deploy
                    echo 'Stage Deploy dev'
@@ -403,6 +403,6 @@ pipeline {
                     }
                 }
             }
-    }
-
+        }
+    }            
 }
