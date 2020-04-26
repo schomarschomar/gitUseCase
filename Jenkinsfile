@@ -411,6 +411,7 @@ pipeline {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
                     
+                    echo 'Environment variables:'
                     sh "printenv | sort"
                 }
             }
@@ -424,22 +425,8 @@ pipeline {
             script {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
-                }
-            }
-        }
-            
-        failure {
-            // Stage Post - failure: Run if the build status is "Failure"
-            echo "Stage Post - Build status is Failure."
-            
-            // Verbose log
-            script {
-                if (env.VERBOSE == true) {
-                    echo 'Verbose log ...'
-                }
-            }
-                
-                // DEBUG custom variable to show environment variables or not
+                    
+                    // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
                 
                 // BUILD_NUMBER The current build number, such as "153"
@@ -483,6 +470,25 @@ pipeline {
                 
                 // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
                 echo "GIT_BRANCH is ${env.GIT_BRANCH}"
+                }
+            }
+        }
+            
+        failure {
+            // Stage Post - failure: Run if the build status is "Failure"
+            echo "Stage Post - Build status is Failure."
+            
+            // Verbose log
+            script {
+                if (env.VERBOSE == true) {
+                    echo 'Verbose log ...'
+                    
+                    echo 'Environment variables:'
+                    sh "printenv | sort"
+                }
+            }
+                
+                
         }
                 
         
