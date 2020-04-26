@@ -421,7 +421,7 @@ pipeline {
             
             // Verbose log
             script {
-                if (env.VERBOSE == true) {
+                if (env.DEBUG == true) {
                     echo 'Verbose log ...'
                     
                     // DEBUG custom variable to show environment variables or not
