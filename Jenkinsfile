@@ -359,9 +359,9 @@ pipeline {
             echo "Build Url is ${env.BUILD_URL}"
             
             // Git environment variables
-            echo "Git Branch is ${env.GIT_BRANCH}"
             echo "Git Url is ${env.GIT_URL}"
-            
+            echo "Git Branch is ${env.GIT_BRANCH}"
+                        
             // slack
             // slackSend botUser: false, 
             //      channel: 'splunk', 
