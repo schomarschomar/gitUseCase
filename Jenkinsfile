@@ -190,7 +190,7 @@ pipeline {
                 // checkout: Check out from version control
                 // ****************************************
                 // echo 'git checkout'
-                git checkout, branch: 'development' 
+                git checkout scm, branch: 'development' 
                 // git credentialsId: 'schomarschomar', url: 'https:/github.com/schomarschomar/gitUseCase/', branch: 'development'
                 
                 echo 'Notification'
