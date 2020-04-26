@@ -316,7 +316,8 @@ pipeline {
             when {
                 // branch
                 expression {
-                    env.BRANCH_NAME.toString().equals('development')
+                    // env.BRANCH_NAME.toString().equals('development')
+                    env.GIT_BRANCH('origin/development')
                 }
             }
                                                                  
