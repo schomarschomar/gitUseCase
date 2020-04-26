@@ -340,7 +340,6 @@ pipeline {
                    echo 'Stage Deploy dev'
             }
         
-    }
     post {
             // always: Always run, regardless of build status
             always {
@@ -353,8 +352,6 @@ pipeline {
                     //      message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_TAG} \nGit branch/PR: ${env.GIT_BRANCH} ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} ", 
                     //      message: "Build: ${env.BUILD_TAG} \nJob: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} to target ${env.CHANGE_TARGET} finished \nChange: ${env.CHANGE_TITLE} \nGit repository: ${env.GIT_URL} \nConsole log: ${env.BUILD_URL} \nResult: ${currentBuild.currentResult}",      
                     //      notifyCommitters: true
-                
-                
             }
             // unstable: Run if the build status is "Unstable
             unstable {
@@ -396,6 +393,6 @@ pipeline {
             changed {
                 echo 'Stage Post - changed: Run if the current builds status is different than the previous builds status'
             }
+        }
     }
-}
 
