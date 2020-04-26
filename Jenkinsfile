@@ -271,22 +271,22 @@ pipeline {
             
         always {
             // Stage Post - always: Always run, regardless of build status
-            echo "Stage Post - Build status analysis ..."
+            echo 'Stage Post - Build status analysis ...'
             // echo "Verbose log set to ${env.VERBOSE}"
             
             // Jenkins environment variables
             echo 'Jenkins environment variables'
             echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
             echo "BUILD_URL is ${env.BUILD_URL}"
-            echo "Job Url is ${env.JOB_URL}"
-            echo "Job Name is ${env.JOB_NAME}"
-            echo "Jumphost is ${env.JUMPHOST}" 
+            echo "JOB_URL is ${env.JOB_URL}"
+            echo "JOB_NAME is ${env.JOB_NAME}"
+            echo "JUMPHOST is ${env.JUMPHOST}" 
                         
             // Git environment variables
             echo 'Git environment variables'
-            echo "Git Branch is ${env.GIT_BRANCH}"
-            echo "Git Commit is ${env.GIT_COMMIT}"
-            echo "Git Url is ${env.GIT_URL}"
+            echo "GIT_BRANCH is ${env.GIT_BRANCH}"
+            echo "GIT_COMMIT is ${env.GIT_COMMIT}"
+            echo "GIT_URL is ${env.GIT_URL}"
             
             // Show test results
             // junit allowEmptyResults: true, healthScaleFactor: 1.9, testResults: 'testresults.xml'
