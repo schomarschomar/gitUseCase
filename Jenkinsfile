@@ -251,6 +251,17 @@ pipeline {
             }
         }
         
+        stage('Deploy to Dev') { 
+            when { 
+                branch('development')
+            }
+            
+            steps {
+                // step deploy
+                echo 'Deploy to dev'
+            }   
+        } 
+        
         stage('Deploy to Test') { 
             when { 
                 branch('release')
