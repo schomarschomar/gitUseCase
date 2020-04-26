@@ -305,7 +305,7 @@ pipeline {
         
         stage('Test') { 
             
-            / anyOf { 
+            // anyOf { 
                         // branch 'master'
                         // branch 'staging'
                         // branch 'development' 
@@ -317,7 +317,7 @@ pipeline {
                     env.BRANCH_NAME.toString().equals('development')
                 }
                 
-                /                                     
+                                                     
             }   
 
             steps {
