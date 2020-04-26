@@ -323,8 +323,7 @@ pipeline {
                     // env.BRANCH_NAME.toString().equals('development')
                     // env.GIT_BRANCH('origin/development')
                     // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
-                    echo "GIT_BRANCH is ${env.GIT_BRANCH}"
-                
+                                    
                     branch env.BRANCH_NAME.toString().equals('origin/development')
                 }
             }
@@ -332,6 +331,7 @@ pipeline {
             steps {
                 // step Test
                 echo 'Stage Test'
+                echo "GIT_BRANCH is ${env.GIT_BRANCH}"
                 
                 // Get test results
                 // bat 'copy /y C:\\Users\\xx017\\.jenkins\\workspace\\PipelineExample\\input\\*.xml C:\\Users\\xx017\\.jenkins\\workspace\\PipelineExample'
