@@ -313,9 +313,10 @@ pipeline {
                     // }
             
             when {
-                branch {
+                anyOf {
                     // env.BRANCH_NAME.toString().equals('development')
-                    env.GIT_BRANCH('origin/development')
+                    // env.GIT_BRANCH('origin/development')
+                    branch 'origin/development'
                 }
             }
                                                                  
