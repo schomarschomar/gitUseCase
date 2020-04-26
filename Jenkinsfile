@@ -362,6 +362,11 @@ pipeline {
             script {
                 if (env.VERBOSE == true) {
                     echo 'Verbose log ...'
+                 // Using env-vars.html
+                 // You can open ${YOUR_JENKINS_HOST}/env-vars.html page on your Jenkins master server 
+                 // to get a list of all environment variables listed on an HTML page.
+
+                echo 'Environment variables'
                     
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
