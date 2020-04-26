@@ -150,7 +150,7 @@ pipeline {
         // Configuration    
         // Build periodically  
         // https://crontab.guru/
-        cron(1 0-23 * 1-12 1-7')
+        // cron(/1 * * * 1-7')
         
         // pollSCM
         // Accepts a cron-style string to define a regular interval at which Jenkins should check for new source changes. 
