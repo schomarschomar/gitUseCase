@@ -392,7 +392,7 @@ pipeline {
             echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
             
             script {
-                if (env.DEBUG) {
+                if (env.VERBOSE) {
                     sh "printenv | sort"
                 }
             }
@@ -402,7 +402,7 @@ pipeline {
         failure {
             echo 'Stage Post - failure: Run if the build status is "Failure"'
             
-            sh "printenv | sort"
+            // sh "printenv | sort"
                 
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
