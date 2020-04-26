@@ -230,6 +230,8 @@ pipeline {
                 // You can write to such properties as well (only using the env. prefix):
                 // https://opensource.triology.de/jenkins/pipeline-syntax/globals
                 
+                echo ""BRANCH_NAME" is ${env.BRANCH_NAME}"
+                
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
                 
