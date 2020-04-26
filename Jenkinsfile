@@ -229,7 +229,7 @@ pipeline {
                 // You can write to such properties as well (only using the env. prefix):
                 // https://opensource.triology.de/jenkins/pipeline-syntax/globals
                 
-                 sh "printenv | sort"
+                sh "printenv | sort"
                 
                 // DEBUG custom variable to show environment variables or not
                 echo "DEBUG is ${env.DEBUG}"
@@ -390,11 +390,62 @@ pipeline {
         // success: Run if the build status is "Success" or hasnt been set yet
         success {
             echo 'Stage Post - success: Run if the build status is "Success" or hasnt been set yet'
+            
+            script {
+                sh "printenv | sort"
+            }
         }
             
         // failure: Run if the build status is "Failure"
         failure {
             echo 'Stage Post - failure: Run if the build status is "Failure"'
+            
+            sh "printenv | sort"
+                
+                // DEBUG custom variable to show environment variables or not
+                echo "DEBUG is ${env.DEBUG}"
+                
+                // BUILD_NUMBER The current build number, such as "153"
+                echo "BUILD_NUMBER is ${env.BUILD_NUMBER}"
+                
+                // BUILD_ID The current build ID, identical to BUILD_NUMBER for builds created in Jenkins versions 1.597+
+                echo "BUILD_ID is ${env.BUILD_ID}"
+                
+                // BUILD_TAG String of jenkins-${JOB_NAME}-${BUILD_NUMBER}. Convenient to put into a resource file, a jar file, etc for easier identification
+                echo "BUILD_TAG is ${env.BUILD_TAG}"
+                
+                // BUILD_DISPLAY_NAME The display name of the current build, which is something like "#153" by default.
+                echo "BUILD_DISPLAY_NAME is ${env.BUILD_DISPLAY_NAME}"
+                
+                // BUILD_URL The URL where the results of this build can be found (for example http://buildserver/jenkins/job/MyJobName/17/ )
+                echo "BUILD_URL is ${env.BUILD_URL}"
+                
+                // EXECUTOR_NUMBER The unique number that identifies the current executor (among executors of the same machine) performing this build. This is the number you see in the "build executor status", except that the number starts from 0, not 1
+                echo "EXECUTOR_NUMBER is ${env.EXECUTOR_NUMBER}"
+                
+                // JAVA_HOME If your job is configured to use a specific JDK, this variable is set to the JAVA_HOME of the specified JDK. When this variable is set, PATH is also updated to include the bin subdirectory of JAVA_HOME
+                echo "JAVA_HOME is ${env.JAVA_HOME}"
+                
+                // JENKINS_HOME
+                echo "JENKINS_HOME is ${env.JENKINS_HOME}"
+                
+                // JENKINS_URL Full URL of Jenkins, such as https://example.com:port/jenkins/ (NOTE: only available if Jenkins URL set in "System Configuration")
+                echo "JENKINS_URL is ${env.JENKINS_URL}"
+                
+                // JOB_NAME Name of the project of this build, such as "foo" or "foo/bar".
+                echo "JOB_NAME is ${env.JOB_NAME}"
+                
+                // NODE_NAME The name of the node the current build is running on. Set to 'master' for master node.
+                echo "NODE_NAME is ${env.NODE_NAME}"
+                
+                // WORKSPACE The absolute path of the workspace
+                echo "WORKSPACE is ${env.WORKSPACE}"
+                
+                // GIT_URL For Git-based projects, this variable contains the Git url (like git@github.com:user/repo.git or [https://github.com/user/repo.git])
+                echo "GIT_URL is ${env.GIT_URL}"
+                
+                // GIT_BRANCH For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master)
+                echo "GIT_BRANCH is ${env.GIT_BRANCH}"
         }
                 
         // unscuccessful: Run if the current builds status is "Aborted", "Failure" or "Unstable"
