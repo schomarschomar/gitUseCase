@@ -118,7 +118,7 @@ pipeline {
         // choice
         // A choice parameter
         // Usage: echo "${params.JUMPHOST}"
-        // choice(name: 'JUMPHOST', choices: ['JUMPHOST_ONE', 'JUMPHOST_TWO', 'JUMPHOST_THREE'], description: 'Select your Jumphost') 
+        choice(name: 'JUMPHOST', choices: ['JUMPHOST_ONE', 'JUMPHOST_TWO', 'JUMPHOST_THREE'], description: 'Select your Jumphost') 
         
         // booleanParam
         // A boolean parameter
