@@ -1,0 +1,903 @@
+<form script="crud_attribute_required.js" stylesheet="crud_style.css" theme="light">
+  <label>Configure Required Attributes</label>
+  <description>Define attribute required for conformance check for individual issuers.</description>
+  <search id="updateSearch" depends="$upd_key_tok$,                                       $upd_Issuer_6_tok$,                                       $upd_doc_type_tok$,                                       $upd_ApplicableLaw_tok$,                                       $upd_AutomaticExercise_tok$,                                       $upd_CBFAccountNumber_tok$,                                       $upd_CommentField_tok$,                                       $upd_Coupon_tok$,                                       $upd_CouponDenomination_tok$,                                      $upd_Currency_tok$,                                                                          $upd_Denomination_tok$,                                       $upd_DistributionCurrency_tok$,                                       $upd_EmptyField_tok$,                                       $upd_EndOfExercisePeriod_tok$,                                       $upd_ExceptionInterestCalculation_tok$,                                      $upd_ExerciseAgent_tok$,                                       $upd_Expiry_tok$,                                       $upd_FirstCoupon_tok$,                                      $upd_FloaterFrom_tok$,                                       $upd_GlobalNoteNumber_tok$,                                       $upd_GlobalNotesLanguage_tok$,                                       $upd_ISIN_tok$,                                       $upd_Increment_tok$,                                       $upd_InstrumentType_tok$,                                       $upd_InterestCycle_tok$,                                      $upd_InterestPaymentType_tok$,                                       $upd_InterestPeriodFrom_tok$,                                      $upd_InterestPeriodTo_tok$,                                      $upd_InterestRate_tok$,                                       $upd_Issuer_tok$,                                       $upd_IssuingAmount_tok$,                                       $upd_LastCoupon_tok$,                                      $upd_LaunchDate_tok$,                                       $upd_Listing_tok$,                                       $upd_MaturityDate_tok$,                                      $upd_MinExercise_tok$,                                       $upd_MinTransferableAmount_tok$,                                       $upd_MinimumAmount_tok$,                                       $upd_NumberOfShares_tok$,                                       $upd_NumberReleased_tok$,                                       $upd_OfferingType_tok$,                                      $upd_OrderNumber_tok$,                                       $upd_OrderType_tok$,                                       $upd_PayingAgent_tok$,                                       $upd_PaymentOrShares_tok$,                                       $upd_ProductName_tok$,                                       $upd_Qualifier_tok$,                                       $upd_Quote_tok$,                                      $upd_RedemptionModality_tok$,                                      $upd_RedemptionTo_tok$,                                      $upd_RedemptionType_tok$,                                      $upd_ReferenceDay_tok$,                                       $upd_SecondCoupon_tok$,                                      $upd_SecuritisationType_tok$,                                       $upd_SecurityType_tok$,                                       $upd_StartOfExercisePeriod_tok$,                                      $upd_TefraDBondFrom_tok$,                                      $upd_TefraDBondTo_tok$,                                      $upd_Type_tok$,                                       $upd_Underlying_tok$,                                       $upd_ValueDate_tok$,                                       $upd_WKN_tok$,                                       $upd_XemacParticipant_tok$,                                       $upd_XemacSystemClaimNumber_tok$">
+    <query>
+       
+                               | inputlookup attr_required_lookup
+
+                               | eval key = _key
+                               | where key = "$upd_key_tok$" 
+    
+                               | eval Issuer_6                         = "$upd_Issuer_6_tok$"
+                               | eval DocumentType                     = "$upd_doc_type_tok$"
+                               
+                               | eval req_ApplicableLaw                = $upd_ApplicableLaw_tok$
+                               | eval req_AutomaticExercise            = $upd_AutomaticExercise_tok$
+                               | eval req_CBFAccountNumber             = $upd_CBFAccountNumber_tok$
+                               | eval req_CommentField                 = $upd_CommentField_tok$
+                               | eval req_Coupon                       = $upd_Coupon_tok$
+                               | eval req_CouponDenomination           = $upd_CouponDenomination_tok$
+                               | eval req_Currency                     = $upd_Currency_tok$
+                               | eval req_Denomination                 = $upd_Denomination_tok$
+                               | eval req_DistributionCurrency         = $upd_DistributionCurrency_tok$
+                               | eval req_EmptyField                   = $upd_EmptyField_tok$
+                               | eval req_EndOfExercisePeriod          = $upd_EndOfExercisePeriod_tok$
+                               | eval req_ExceptionInterestCalculation = $upd_ExceptionInterestCalculation_tok$
+                               | eval req_ExerciseAgent                = $upd_ExerciseAgent_tok$
+                               | eval req_Expiry                       = $upd_Expiry_tok$
+                               | eval req_FirstCoupon                  = $upd_FirstCoupon_tok$
+                               | eval req_FloaterFrom                  = $upd_FloaterFrom_tok$
+                               | eval req_GlobalNoteNumber             = $upd_GlobalNoteNumber_tok$
+                               | eval req_GlobalNotesLanguage          = $upd_GlobalNotesLanguage_tok$
+                               | eval req_ISIN                         = $upd_ISIN_tok$
+                               | eval req_Increment                    = $upd_Increment_tok$
+                               | eval req_InstrumentType               = $upd_InstrumentType_tok$
+                               | eval req_InterestCycle                = $upd_InterestCycle_tok$
+                               | eval req_InterestPaymentType          = $upd_InterestPaymentType_tok$
+                               | eval req_InterestPeriodFrom           = $upd_InterestPeriodFrom_tok$
+                               | eval req_InterestPeriodTo             = $upd_InterestPeriodTo_tok$
+                               | eval req_InterestRate                 = $upd_InterestRate_tok$
+                               | eval req_Issuer                       = $upd_Issuer_tok$
+                               | eval req_IssuingAmount                = $upd_IssuingAmount_tok$
+                               | eval req_LastCoupon                   = $upd_LastCoupon_tok$
+                               | eval req_LaunchDate                   = $upd_LaunchDate_tok$
+                               | eval req_Listing                      = $upd_Listing_tok$
+                               | eval req_MaturityDate                 = $upd_MaturityDate_tok$
+                               | eval req_MinExercise                  = $upd_MinExercise_tok$
+                               | eval req_MinTransferableAmount        = $upd_MinTransferableAmount_tok$
+                               | eval req_MinimumAmount                = $upd_MinimumAmount_tok$
+                               | eval req_NumberOfShares               = $upd_NumberOfShares_tok$
+                               | eval req_NumberReleased               = $upd_NumberReleased_tok$
+                               | eval req_OfferingType                 = $upd_OfferingType_tok$
+                               | eval req_OrderNumber                  = $upd_OrderNumber_tok$
+                               | eval req_OrderType                    = $upd_OrderType_tok$
+                               | eval req_PayingAgent                  = $upd_PayingAgent_tok$
+                               | eval req_PaymentOrShares              = $upd_PaymentOrShares_tok$
+                               | eval req_ProductName                  = $upd_ProductName_tok$
+                               | eval req_Qualifier                    = $upd_Qualifier_tok$
+                               | eval req_Quote                        = $upd_Quote_tok$
+                               | eval req_RedemptionModality           = $upd_RedemptionModality_tok$
+                               | eval req_RedemptionTo                 = $upd_RedemptionTo_tok$
+                               | eval req_RedemptionType               = $upd_RedemptionType_tok$
+                               | eval req_ReferenceDay                 = $upd_ReferenceDay_tok$
+                               | eval req_SecondCoupon                 = $upd_SecondCoupon_tok$
+                               | eval req_SecuritisationType           = $upd_SecuritisationType_tok$
+                               | eval req_SecurityType                 = $upd_SecurityType_tok$
+                               | eval req_StartOfExercisePeriod        = $upd_StartOfExercisePeriod_tok$
+                               | eval req_TefraDBondFrom               = $upd_TefraDBondFrom_tok$
+                               | eval req_TefraDBondTo                 = $upd_TefraDBondTo_tok$
+                               | eval req_Type                         = $upd_Type_tok$
+                               | eval req_Underlying                   = $upd_Underlying_tok$
+                               | eval req_ValueDate                    = $upd_ValueDate_tok$
+                               | eval req_WKN                          = $upd_WKN_tok$
+                               | eval req_XemacParticipant             = $upd_XemacParticipant_tok$
+                               | eval req_XemacSystemClaimNumber       = $upd_XemacSystemClaimNumber_tok$
+
+                               | outputlookup attr_required_lookup append=t
+                               </query>
+  </search>
+  <search id="createSearch" depends="$crt_key_tok$,                                       $crt_Issuer_6_tok$,                                       $crt_doc_type_tok$,                                       $crt_ApplicableLaw_tok$,                                       $crt_AutomaticExercise_tok$,                                       $crt_CBFAccountNumber_tok$,                                       $crt_CommentField_tok$,                                       $crt_Coupon_tok$,                                       $crt_CouponDenomination_tok$,                                      $crt_Currency_tok$,                                                                          $crt_Denomination_tok$,                                       $crt_DistributionCurrency_tok$,                                       $crt_EmptyField_tok$,                                       $crt_EndOfExercisePeriod_tok$,                                      $crt_ExceptionInterestCalculation_tok$,                                      $crt_ExerciseAgent_tok$,                                       $crt_Expiry_tok$,                                       $crt_FirstCoupon_tok$,                                      $crt_FloaterFrom_tok$,                                       $crt_GlobalNoteNumber_tok$,                                       $crt_GlobalNotesLanguage_tok$,                                       $crt_ISIN_tok$,                                       $crt_Increment_tok$,                                       $crt_InstrumentType_tok$,                                       $crt_InterestCycle_tok$                                      $crt_InterestPaymentType_tok$,                                       $crt_InterestPeriodFrom_tok$,                                      $crt_InterestPeriodTo_tok$,                                      $crt_InterestRate_tok$,                                       $crt_Issuer_tok$,                                       $crt_IssuingAmount_tok$,                                       $crt_LastCoupon_tok$,                                      $crt_LaunchDate_tok$,                                       $crt_Listing_tok$,                                       $crt_MaturityDate_tok$,                                      $crt_MinExercise_tok$,                                       $crt_MinTransferableAmount_tok$,                                       $crt_MinimumAmount_tok$,                                       $crt_NumberOfShares_tok$,                                       $crt_NumberReleased_tok$,                                       $crt_OfferingType_tok$,                                      $crt_OrderNumber_tok$,                                       $crt_OrderType_tok$,                                       $crt_PayingAgent_tok$,                                       $crt_PaymentOrShares_tok$,                                       $crt_ProductName_tok$,                                       $crt_Qualifier_tok$,                                       $crt_Quote_tok$,                                      $crt_RedemptionModality_tok$,                                      $crt_RedemptionTo_tok$,                                      $crt_RedemptionType_tok$,                                      $crt_ReferenceDay_tok$,                                       $crt_SecondCoupon_tok$,                                      $crt_SecuritisationType_tok$,                                       $crt_SecurityType_tok$,                                       $crt_StartOfExercisePeriod_tok$,                                       $crt_TefraDBondFrom_tok$,                                      $crt_TefraDBondTo_tok$,                                      $crt_Type_tok$,                                       $crt_Underlying_tok$,                                       $crt_ValueDate_tok$,                                       $crt_WKN_tok$,                                       $crt_XemacParticipant_tok$,                                       $crt_XemacSystemClaimNumber_tok$">
+    <query>
+      
+        | inputlookup attr_required_lookup
+        | append [stats count
+                                     
+    
+                               | eval Issuer_6                         = "$crt_Issuer_6_tok$"
+                               | eval DocumentType                     = "$crt_doc_type_tok$"
+                               
+                               | eval req_ApplicableLaw                = $crt_ApplicableLaw_tok$
+                               | eval req_AutomaticExercise            = $crt_AutomaticExercise_tok$
+                               | eval req_CBFAccountNumber             = $crt_CBFAccountNumber_tok$
+                               | eval req_CommentField                 = $crt_CommentField_tok$
+                               | eval req_Coupon                       = $crt_Coupon_tok$
+                               | eval req_CouponDenomination           = $crt_CouponDenomination_tok$
+                               | eval req_Currency                     = $crt_Currency_tok$
+                               | eval req_Denomination                 = $crt_Denomination_tok$
+                               | eval req_DistributionCurrency         = $crt_DistributionCurrency_tok$
+                               | eval req_EmptyField                   = $crt_EmptyField_tok$
+                               | eval req_EndOfExercisePeriod          = $crt_EndOfExercisePeriod_tok$
+                               | eval req_ExceptionInterestCalculation = $crt_ExceptionInterestCalculation_tok$
+                               | eval req_ExerciseAgent                = $crt_ExerciseAgent_tok$
+                               | eval req_Expiry                       = $crt_Expiry_tok$
+                               | eval req_FirstCoupon                  = $crt_FirstCoupon_tok$
+                               | eval req_FloaterFrom                  = $crt_FloaterFrom_tok$
+                               | eval req_GlobalNoteNumber             = $crt_GlobalNoteNumber_tok$
+                               | eval req_GlobalNotesLanguage          = $crt_GlobalNotesLanguage_tok$
+                               | eval req_ISIN                         = $crt_ISIN_tok$
+                               | eval req_Increment                    = $crt_Increment_tok$
+                               | eval req_InstrumentType               = $crt_InstrumentType_tok$
+                               | eval req_InterestCycle                = $crt_InterestCycle_tok$
+                               | eval req_InterestPaymentType          = $crt_InterestPaymentType_tok$
+                               | eval req_InterestPeriodFrom           = $crt_InterestPeriodFrom_tok$
+                               | eval req_InterestPeriodTo             = $crt_InterestPeriodTo_tok$
+                               | eval req_InterestRate                 = $crt_InterestRate_tok$
+                               | eval req_Issuer                       = $crt_Issuer_tok$
+                               | eval req_IssuingAmount                = $crt_IssuingAmount_tok$
+                               | eval req_LastCoupon                   = $crt_LastCoupon_tok$
+                               | eval req_LaunchDate                   = $crt_LaunchDate_tok$
+                               | eval req_Listing                      = $crt_Listing_tok$
+                               | eval req_MaturityDate                 = $crt_MaturityDate_tok$
+                               | eval req_MinExercise                  = $crt_MinExercise_tok$
+                               | eval req_MinTransferableAmount        = $crt_MinTransferableAmount_tok$
+                               | eval req_MinimumAmount                = $crt_MinimumAmount_tok$
+                               | eval req_NumberOfShares               = $crt_NumberOfShares_tok$
+                               | eval req_NumberReleased               = $crt_NumberReleased_tok$
+                               | eval req_OfferingType                 = $crt_OfferingType_tok$
+                               | eval req_OrderNumber                  = $crt_OrderNumber_tok$
+                               | eval req_OrderType                    = $crt_OrderType_tok$
+                               | eval req_PayingAgent                  = $crt_PayingAgent_tok$
+                               | eval req_PaymentOrShares              = $crt_PaymentOrShares_tok$
+                               | eval req_ProductName                  = $crt_ProductName_tok$
+                               | eval req_Qualifier                    = $crt_Qualifier_tok$
+                               | eval req_Quote                        = $crt_Quote_tok$
+                               | eval req_RedemptionModality           = $crt_RedemptionModality_tok$
+                               | eval req_RedemptionTo                 = $crt_RedemptionTo_tok$
+                               | eval req_RedemptionType               = $crt_RedemptionType_tok$
+                               | eval req_ReferenceDay                 = $crt_ReferenceDay_tok$
+                               | eval req_SecondCoupon                 = $crt_SecondCoupon_tok$
+                               | eval req_SecuritisationType           = $crt_SecuritisationType_tok$
+                               | eval req_SecurityType                 = $crt_SecurityType_tok$
+                               | eval req_StartOfExercisePeriod        = $crt_StartOfExercisePeriod_tok$
+                               | eval req_TefraDBondFrom               = $crt_TefraDBondFrom_tok$
+                               | eval req_TefraDBondTo                 = $crt_TefraDBondTo_tok$
+                               | eval req_Type                         = $crt_Type_tok$
+                               | eval req_Underlying                   = $crt_Underlying_tok$
+                               | eval req_ValueDate                    = $crt_ValueDate_tok$
+                               | eval req_WKN                          = $crt_WKN_tok$
+                               | eval req_XemacParticipant             = $crt_XemacParticipant_tok$
+                               | eval req_XemacSystemClaimNumber       = $crt_XemacSystemClaimNumber_tok$
+                               ]
+                               | table Issuer_6 DocumentType req_*
+
+                               | outputlookup attr_required_lookup
+                               </query>
+  </search>
+  <search id="deleteSearch" depends="$delete_key_tok$">
+    <query>
+        | inputlookup attr_required_lookup | eval key=_key | WHERE NOT key="$delete_key_tok$" | outputlookup attr_required_lookup
+      </query>
+  </search>
+  <fieldset submitButton="false">
+    <input type="dropdown" token="dd_doc_type">
+      <label>Select Document Type</label>
+      <fieldForLabel>DocumentType</fieldForLabel>
+      <fieldForValue>DocumentType</fieldForValue>
+      <search>
+        <query>| inputlookup attr_required_lookup
+| stats count by DocumentType
+| sort + DocumentType</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+      <default>CER</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel id="requiredAttributePanel">
+      <title>Issuers</title>
+      <table id="requiredAttributeTable">
+        <search id="requiredAttributeSearch">
+          <query>| inputlookup attr_required_lookup
+          | search DocumentType = $dd_doc_type$
+| eval issuer_code = Issuer_6
+| lookup issuer_lookup.csv issuer_code OUTPUT Issuer
+| eval Issuer = coalesce(Issuer, "Not set - please update Issuer configuration")
+| eval Update = "Update", Delete = "Delete"
+| rename req_* AS _req_*
+| fields - issuer_code
+| sort + Issuer
+| table Issuer Issuer_6 DocumentType Update Delete *</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">true</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+    <panel>
+      <html>
+      <p style="font-size: 18px"> <b>Note:</b> When <i>creating</i> or <i>updating</i> an issuer, all attributes must be set - either 'yes' or 'no'. <i>Creating</i> or <i>Updating</i> is not possible until this requiremed is met! All selection boxes must not be empty.</p>
+    </html>
+    </panel>
+  </row>
+  <row>
+    <panel id="requiredAttributeFormPanel">
+
+      <html>
+        <head>
+       
+        </head>
+                               <form>
+                                 
+                               <br/>
+    <br/>
+  
+                                               <div style="width: 40%; float:left">
+                                                               <label for="Issuer_6">Issuer Code</label>
+                                                               <input style="width: 90%" type="text" name="Issuer_6"/>
+                                               </div>
+                                               
+                                               <div style="width: 30%; display: table-cell">
+                                                               <label for="DocumentType">Type of Document</label>
+                                                                                              <select style="width: 85%" name="DocumentType">
+                                                                                              <option selected="selected"> </option>
+                                                                                                <option value="BON">BON</option>
+                                                                                                <option value="CER">CER</option>
+                                                                                                <option value="WAR">CERWAR</option>
+                                                                                                <option value="WAR">WAR</option>
+                                                                                              </select>
+                                               </div>
+                                               
+                                               <br/>
+                                               <br/>
+                                               
+                                               <div style="width: 100%; display: table;">
+                                                               <div style="display: table-row">
+                                                                 
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ApplicableLaw">Applicable Law</label>
+                                                                                              <select style="width: 85%" name="ApplicableLaw">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>                                                                              
+                                                                                
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ApplicableLaw">Applicable Law</label>
+                                                                                              <select style="width: 85%" name="ApplicableLaw">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="AutomaticExercise">Automatic Exercise</label>
+                                                                                              <select style="width: 85%" name="AutomaticExercise">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="CBFAccountNumber">CBF Account Number</label>
+                                                                                              <select style="width: 85%" name="CBFAccountNumber">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="CommentField">Comment Field</label>
+                                                                                              <select style="width: 85%" name="CommentField">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                </div>
+                                                              
+                                                              <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Coupon">Coupon</label>
+                                                                                              <select style="width: 85%" name="Coupon">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                          
+                                                              
+                                                                
+                                                                                
+                                                                                
+                                                                                <div style="width: 20%; display: table-cell">
+                                                                                              <label for="CouponDenomination">Coupon Denomination</label>
+                                                                                              <select style="width: 85%" name="CouponDenomination">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                                 
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Currency">Currency</label>
+                                                                                              <select style="width: 85%" name="Currency">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="DistributionCurrency">Distribution Currency</label>
+                                                                                              <select style="width: 85%" name="DistributionCurrency">
+                                                                                                <option selected="selected"> </option>
+                                                                                                 <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Denomination">Denomination</label>
+                                                                                              <select style="width: 85%" name="Denomination">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                </div>
+                                                              
+                                                              <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="EmptyField">Empty Field</label>
+                                                                                              <select style="width: 85%" name="EmptyField">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                  
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="EndOfExercisePeriod">End Of Exercise Period</label>
+                                                                                              <select style="width: 85%" name="EndOfExercisePeriod">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ExceptionInterestCalculation">Exception Interest Calculation</label>
+                                                                                              <select style="width: 85%" name="ExceptionInterestCalculation">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ExerciseAgent">Exercise Agent</label>
+                                                                                              <select style="width: 85%" name="ExerciseAgent">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Expiry">Expiry</label>
+                                                                                              <select style="width: 85%" name="Expiry">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                            
+                                                                </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="FirstCoupon">First Coupon</label>
+                                                                                              <select style="width: 85%" name="FirstCoupon">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="FloaterFrom">FloaterFrom</label>
+                                                                                              <select style="width: 85%" name="FloaterFrom">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="GlobalNotesLanguage">Global Notes Language</label>
+                                                                                              <select style="width: 85%" name="GlobalNotesLanguage">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                 
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="GlobalNoteNumber">Global Note Number</label>
+                                                                                              <select style="width: 85%" name="GlobalNoteNumber">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                           
+                                                                 
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ISIN">ISIN</label>
+                                                                                              <select style="width: 85%" name="ISIN">
+                                                                                                <option selected="selected"> </option>
+                                                                                                 <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Increment">Increment</label>
+                                                                                              <select style="width: 85%" name="Increment">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                 
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InstrumentType">InstrumentType</label>
+                                                                                              <select style="width: 85%" name="InstrumentType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InterestCycle">InterestCycle</label>
+                                                                                              <select style="width: 85%" name="InterestCycle">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InterestPaymentType">Interest Payment Type</label>
+                                                                                              <select style="width: 85%" name="InterestPaymentType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InterestPeriodFrom">Interest Period From</label>
+                                                                                              <select style="width: 85%" name="InterestPeriodFrom">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                  </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InterestPeriodTo">Interest Period To</label>
+                                                                                              <select style="width: 85%" name="InterestPeriodTo">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                              
+                                                              
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="InterestRate">InterestRate</label>
+                                                                                              <select style="width: 85%" name="InterestRate">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Issuer">Issuer</label>
+                                                                                              <select style="width: 85%" name="Issuer">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="IssuingAmount">IssuingAmount</label>
+                                                                                              <select style="width: 85%" name="IssuingAmount">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="LastCoupon">Last Coupon</label>
+                                                                                              <select style="width: 85%" name="LastCoupon">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                  </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="LaunchDate">Launch Date</label>
+                                                                                              <select style="width: 85%" name="LaunchDate">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                              
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Listing">Listing</label>
+                                                                                              <select style="width: 85%" name="Listing">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="MaturityDate">Maturity Date</label>
+                                                                                              <select style="width: 85%" name="MaturityDate">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="MinExercise">Minimum Exercise</label>
+                                                                                              <select style="width: 85%" name="MinExercise">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="MinTransferableAmount">Min. Transferable Amount</label>
+                                                                                              <select style="width: 85%" name="MinTransferableAmount">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                  </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="MinimumAmount">Minimum Amount</label>
+                                                                                              <select style="width: 85%" name="MinimumAmount">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                 
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="NumberOfShares">Number Of Shares</label>
+                                                                                              <select style="width: 85%" name="NumberOfShares">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="NumberReleased">Number Released</label>
+                                                                                              <select style="width: 85%" name="NumberReleased">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="OfferingType">Offering Type</label>
+                                                                                              <select style="width: 85%" name="OfferingType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                               </select>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                           
+                                                                              <div style="width: 20%; display: table-cell">
+                                                                                              <label for="OrderNumber">Order Number</label>
+                                                                                              <select style="width: 85%" name="OrderNumber">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                    </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="OrderType">Order Type</label>
+                                                                                              <select style="width: 85%" name="OrderType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                        
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="PayingAgent">Paying Agent</label>
+                                                                                              <select style="width: 85%" name="PayingAgent">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="PaymentOrShares">Payment Or Shares</label>
+                                                                                              <select style="width: 85%" name="PaymentOrShares">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ProductName">ProductName</label>
+                                                                                              <select style="width: 85%" name="ProductName">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                              </div>
+                                                                               
+                                                                               
+                                                           
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Qualifier">Qualifier</label>
+                                                                                              <select style="width: 85%" name="Qualifier">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                        </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Quote">Quote</label>
+                                                                                              <select style="width: 85%" name="Quote">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="RedemptionModality">Redemption Modality</label>
+                                                                                              <select style="width: 85%" name="RedemptionModality">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="RedemptionTo">Redemption To</label>
+                                                                                              <select style="width: 85%" name="RedemptionTo">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="RedemptionType">Redemption Type</label>
+                                                                                              <select style="width: 85%" name="RedemptionType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ReferenceDay">ReferenceDay</label>
+                                                                                              <select style="width: 85%" name="ReferenceDay">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                  </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="SecondCoupon">Second Coupon</label>
+                                                                                              <select style="width: 85%" name="SecondCoupon">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="SecuritisationType">Securitisation Type</label>
+                                                                                              <select style="width: 85%" name="SecuritisationType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="SecurityType">Security Type</label>
+                                                                                              <select style="width: 85%" name="SecurityType">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="StartOfExercisePeriod">Start Of Exercise Period</label>
+                                                                                              <select style="width: 85%" name="StartOfExercisePeriod">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                          
+                                                                              
+                                                                              <div style="width: 20%; display: table-cell">
+                                                                                              <label for="TefraDBondFrom">TefraDBond From</label>
+                                                                                              <select style="width: 85%" name="TefraDBondFrom">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                    </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="TefraDBondTo">TefraDBond To</label>
+                                                                                              <select style="width: 85%" name="TefraDBondTo">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Type">Type</label>
+                                                                                              <select style="width: 85%" name="Type">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="Underlying">Underlying</label>
+                                                                                              <select style="width: 85%" name="Underlying">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="ValueDate">Value Date</label>
+                                                                                              <select style="width: 85%" name="ValueDate">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="WKN">WKN</label>
+                                                                                              <select style="width: 85%" name="WKN">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                                               
+                                                                  </div>
+                                                                          
+                                                                  <div style="display: table-row">
+                                                                               
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="XemacParticipant">Xemac Participant</label>
+                                                                                              <select style="width: 85%" name="XemacParticipant">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                             
+
+                                                                               <div style="width: 20%; display: table-cell">
+                                                                                              <label for="XemacSystemClaimNumber">Xemac System Claim Number</label>
+                                                                                              <select style="width: 85%" name="XemacSystemClaimNumber">
+                                                                                                <option selected="selected"> </option>
+                                                                                                <option value="0">no</option>
+                                                                                                <option value="1">yes</option>
+                                                                                              </select>
+                                                                               </div>
+                                                               </div>
+                                                               
+                                                               <input type="hidden" name="_key"/>
+                                                               <div>
+                                                                               <button id="submitButton">Submit</button>
+                                                               </div>
+                                               </div>
+                               </form>
+      </html>
+    </panel>
+  </row>
+</form>
